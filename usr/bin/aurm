@@ -204,7 +204,7 @@ ensure_master_branch() {
 		git branch -m main master
 
 		# Remove upstream antigo
-		git branch --unset-upstream 2>/dev/null
+		git branch --unset-upstream master 2>/dev/null
 
 		# Atualiza referências do remoto
 		git fetch origin >/dev/null 2>&1
@@ -213,6 +213,8 @@ ensure_master_branch() {
 		if git ls-remote --exit-code --heads origin master >/dev/null 2>&1; then
 			git branch --set-upstream-to=origin/master master >/dev/null 2>&1
 		fi
+	else
+		git branch --set-upstream-to=origin/"$current_branch" "$current_branch" >/dev/null 2>&1
 	fi
 }
 
