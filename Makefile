@@ -1,25 +1,25 @@
 SHELL=/bin/bash
 DESTDIR=
 BINDIR=${DESTDIR}/usr/bin
-INFODIR=${DESTDIR}/usr/share/doc/aur-git
-LICENSEDIR=${DESTDIR}/usr/share/licenses/aur-git
+INFODIR=${DESTDIR}/usr/share/doc/aurm
+LICENSEDIR=${DESTDIR}/usr/share/licenses/aurm
 MODE=664
 DIRMODE=755
 
 .PHONY: build
 
 install:
-	@echo "            Script aur-git"
-	@echo ":: Aguarde, instalando software aur-git em: ${BINDIR}"
-	@install -Dm755 "usr/bin/aur-git" "/usr/bin/aur-git"
+	@echo "            Script aurm"
+	@echo ":: Aguarde, instalando software aurm em: ${BINDIR}"
+	@install -Dm755 "usr/bin/aurm" "/usr/bin/aurm"
 	@install -d ${LICENSEDIR}/
 	@cp LICENSE ${LICENSEDIR}/
 	@install -d ${INFODIR}/
 	@cp Makefile README.md ${INFODIR}/
-	@echo ":: Feito! aur-git software instalado em: ${BINDIR}"
+	@echo ":: Feito! aurm software instalado em: ${BINDIR}"
 	@echo
 uninstall:
-	@rm ${BINDIR}/aur-git
+	@rm ${BINDIR}/aurm
 	@rm -rf ${INFODIR}
 	@rm -rf ${LICENSEDIR}
-	@echo "aur-git foi removido."
+	@echo "aurm foi removido."
