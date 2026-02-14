@@ -216,8 +216,10 @@ update_repo() {
     msg generating_srcinfo
     makepkg --printsrcinfo > .SRCINFO
 
+if command -v namcap >/dev/null 2>&1; then
     msg running_namcap
     namcap PKGBUILD || true
+fi
 
     PKGVER=$(grep '^pkgver=' PKGBUILD | cut -d= -f2)
     PKGREL=$(grep '^pkgrel=' PKGBUILD | cut -d= -f2)
